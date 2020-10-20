@@ -49,6 +49,45 @@ def isValidSudoku(grid: Array[Array[Int]]): Boolean = {
   }
 }
 
+isValidSudoku(Array(
+  Array(5, 3, 4,  6, 7, 8,  9, 1, 2),
+  Array(6, 7, 2,  1, 9, 5,  3, 4, 8),
+  Array(1, 9, 8,  3, 4, 2,  5, 6, 7),
+
+  Array(8, 5, 9,  7, 6, 1,  4, 2, 3),
+  Array(4, 2, 6,  8, 5, 3,  7, 9, 1),
+  Array(7, 1, 3,  9, 2, 4,  8, 5, 6),
+
+  Array(9, 6, 1,  5, 3, 7,  2, 8, 4),
+  Array(2, 8, 7,  4, 1, 9,  6, 3, 5),
+  Array(3, 4, 5,  2, 8, 6,  1, 7, 9)
+))
+
 //TODO how to modify this function to check for 0 when unfilled,
 
 //that is valid grids which are not completed
+
+// Converters
+val v1 = Array(1, 2, 3).to(Vector)
+val v2 = Array(1, 2, 3).toVector
+v1(2)
+//v1(2) = 500
+
+val a1 = Vector(1, 2, 3).to(Array)
+val a2 = Vector(1, 2, 3).toArray
+a2(2) = 50
+
+//So if you want mutable sequence use Array
+//If you want immutable sequences use Vector
+
+// Views
+
+val myArray = Array(1, 2, 3, 4, 5, 6, 7, 8, 9)
+val myNewArray = myArray.map(x => x + 100).filter(x => x % 2 == 0).slice(1, 3)
+
+//so create view then do stuff then cast to Array
+val myFusedArray = myArray.view.map(_ + 100).filter(_ % 2 == 0).slice(1, 3).to(Array)
+
+//TODO Create 100 000 Vectors of say 100 size and do map and filter on them
+//TODO Same for Arrays - my hypothesis is that Arrays will be fASTER
+//Time it
