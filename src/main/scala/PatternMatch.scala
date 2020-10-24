@@ -19,7 +19,30 @@ object PatternMatch {
     case "Sun" => 7; case _ => -1
   }
 
+  def getFizzBuzz(beg:Int = 1, end:Int = 100, fizz:Int = 3, buzz:Int = 5): Seq[String] = {
+    val result = for (i <- Range.inclusive(beg, end)) yield {
+      (i % fizz, i % buzz) match {
+        case (0, 0) => "FizzBuzz"
+        case (0, _) => "Fizz"
+        case (_, 0) => "Buzz"
+        case _ => i.toString
+      }
+    }
+    result
+  }
 
+  def direction(p: Point): String = p match {
+    case Point(0, 0) => "origin"
+    case Point(_, 0) => "horizontal"
+    case Point(0, _) => "vertical"
+    case _ => "diagonal"
+    //TODO add qudrants q1 would positive x and y) q2 would be negative x and positive y, q3 both negative
+  }
+
+
+  def printFizzBuzz(beg:Int = 1, end:Int = 100, fizz:Int = 3, buzz:Int = 5): Unit = {
+    println(getFizzBuzz(beg,end,fizz,buzz).mkString(","))
+  }
 
   def printDay(x: Int): Unit = println(dayOfWeek(x))
   def printIndex(d: String): Unit = println(indexOfDay(d))
