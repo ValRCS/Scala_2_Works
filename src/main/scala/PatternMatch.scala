@@ -42,7 +42,24 @@ object PatternMatch {
     case _ => "unexpected" //this really should not be possible
   }
 
+  def splitDate(s: String): String = s match {
+    case s"$day-$month-$year" =>
+      s"day: $day, mon: $month, yr: $year"
+    case _ => "not a date"
+  }
 
+  def greet(p: Person): Unit = p match {
+    case Person(s"$firstName $lastName", title) => println(s"Hello $title $lastName")
+    case Person(name, title) => println(s"Hello $title $name")
+    case _ => println("Hmm who are you really?")
+  }
+
+  def greet2(husband: Person, wife: Person): Unit = (husband, wife) match {
+    case (Person(s"$first1 $last1", _), Person(s"$first2 $last2", _)) if last1 == last2 =>
+      println(s"Hello Mr and Ms $last1")
+    case (Person(name1, _), Person(name2, _)) => println(s"Hello $name1 and $name2")
+      //TODO add specific greeter when persons first names match, saying You have the same name, title and Last name
+  }
 
   def printFizzBuzz(beg:Int = 1, end:Int = 100, fizz:Int = 3, buzz:Int = 5): Unit = {
     println(getFizzBuzz(beg,end,fizz,buzz).mkString(","))

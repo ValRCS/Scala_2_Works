@@ -34,6 +34,13 @@ object UsingPatternMatch extends App {
   val points = for (i <- Range.inclusive(1,10)) yield Point(r.between(-5,5+1),r.between(-5,5+1))
   points.foreach(pt => println(pt, direction(pt)))
 
+  println(PatternMatch.splitDate("24-October-2020"))
+  println(PatternMatch.splitDate("24-NotAFulldate"))
 
+  PatternMatch.greet(Person("Valdis Saulespurens", "Mr."))
+  PatternMatch.greet(Person("Jautrīte", "Miss"))
+
+  PatternMatch.greet2(Person("James Bond", "Mr."), Person("Jane Bond", "Mrs."))
+  PatternMatch.greet2(Person("James Bond", "Mr."), Person("Jane Fonda", "Mrs."))
 
 }
