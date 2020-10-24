@@ -4,7 +4,7 @@ import PatternMatch.direction
 import PatternMatch.{printDay => pD}
 
 object UsingPatternMatch extends App {
-  val r = new scala.util.Random(42) // specific seed values will always give same pseudorandom numbers
+  val r = new scala.util.Random(0) // specific seed values will always give same pseudorandom numbers
 
   PatternMatch.printDay(4)
   PatternMatch.printDay(70)
@@ -42,5 +42,17 @@ object UsingPatternMatch extends App {
 
   PatternMatch.greet2(Person("James Bond", "Mr."), Person("Jane Bond", "Mrs."))
   PatternMatch.greet2(Person("James Bond", "Mr."), Person("Jane Fonda", "Mrs."))
+  PatternMatch.greet2(Person("Kim Philby", "Mr."), Person("Kim Bassinger", "Mrs."))
+
+//  for (i <- 0 until points.size) {
+//    for (j <- i+1 until points.size) {
+//      PatternMatch.matchDistance(points(i), points(j))
+//    }
+//  }
+  val myList = points.combinations(2).toList
+  myList.foreach(t => PatternMatch.matchDistance(t(0), t(1)))
+//    .foreach(tup => PatternMatch.matchDistance(tup._1, tup._2))
+  myList.foreach(println)
+  //TODO how could we check all two item combinations in a sequence (Array)
 
 }
