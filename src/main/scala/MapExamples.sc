@@ -58,11 +58,11 @@ mutArrMap.keysIterator //so keysIterator gives us keys on demand when we loop th
 mutArrMap.keysIterator.foreach(println)
 
 //so if you were to write your own class and make it iterable you'd need to implement next
-mutArrMap.keysIterator.next()
+//mutArrMap.keysIterator.next()
 for (item <- mutArrMap.keysIterator) {
   println(item)
 }
 //val myIt = mutArrMap.keysIterator
-//val it = mutArrMap.keysIterator
-//while (it.hasNext)
-//  println(it.next())
+val it = mutArrMap.keysIterator
+while (it.hasNext)
+  println(it.next())
