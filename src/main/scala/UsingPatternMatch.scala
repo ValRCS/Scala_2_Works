@@ -4,7 +4,7 @@ import PatternMatch.direction
 import PatternMatch.{printDay => pD}
 
 object UsingPatternMatch extends App {
-
+  val r = new scala.util.Random(42) // specific seed values will always give same pseudorandom numbers
 
   PatternMatch.printDay(4)
   PatternMatch.printDay(70)
@@ -25,12 +25,13 @@ object UsingPatternMatch extends App {
   println(direction(p3))
   println(direction(p4))
 
-  def randomRange(beg:Int, end:Int, seed: Int = 42) :Int = {
-    val r = new scala.util.Random(seed) // specific seed values will always gives as same pseudorandom numbers
-    0 //FIXME
+  def randomRange(beg:Int, end:Int) :Int = {
+
+    beg + r.nextInt((end - beg) + 1)
   }
 
-  val points = for (i <- Range.inclusive(1,10)) yield Point(randomRange(-5,5),randomRange(-5, 5))
+//  val points = for (i <- Range.inclusive(1,10)) yield Point(randomRange(-5,5),randomRange(-5, 5))
+  val points = for (i <- Range.inclusive(1,10)) yield Point(r.between(-5,5+1),r.between(-5,5+1))
   points.foreach(pt => println(pt, direction(pt)))
 
 

@@ -43,6 +43,7 @@ object PatternMatch {
   }
 
 
+
   def printFizzBuzz(beg:Int = 1, end:Int = 100, fizz:Int = 3, buzz:Int = 5): Unit = {
     println(getFizzBuzz(beg,end,fizz,buzz).mkString(","))
   }
