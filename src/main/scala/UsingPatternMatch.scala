@@ -5,6 +5,7 @@ import PatternMatch.{printDay => pD}
 
 object UsingPatternMatch extends App {
 
+
   PatternMatch.printDay(4)
   PatternMatch.printDay(70)
   pD(6) // these kind of short names should be used when there is no confusion on their meaning
@@ -23,5 +24,15 @@ object UsingPatternMatch extends App {
   println(direction(p2))
   println(direction(p3))
   println(direction(p4))
+
+  def randomRange(beg:Int, end:Int, seed: Int = 42) :Int = {
+    val r = new scala.util.Random(seed) // specific seed values will always gives as same pseudorandom numbers
+    0 //FIXME
+  }
+
+  val points = for (i <- Range.inclusive(1,10)) yield Point(randomRange(-5,5),randomRange(-5, 5))
+  points.foreach(pt => println(pt, direction(pt)))
+
+
 
 }

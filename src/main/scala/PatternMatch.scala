@@ -36,8 +36,10 @@ object PatternMatch {
     case Point(_, 0) => "horizontal"
     case Point(0, _) => "vertical"
     case mp if mp.x > 0 && mp.y > 0 => "Q1" //Pattern Guard example so mp i just made up on the spot
-    case _ => "diagonal"
-    //TODO add qudrants q1 would positive x and y) q2 would be negative x and positive y, q3 both negative
+    case mp if mp.x < 0 && mp.y > 0 => "Q2" //Pattern Guard example so mp i just made up on the spot
+    case mp if mp.x < 0 && mp.y < 0 => "Q3" //Pattern Guard example so mp i just made up on the spot
+    case mp if mp.x > 0 && mp.y < 0 => "Q4" //Pattern Guard example so mp i just made up on the spot
+    case _ => "unexpected" //this really should not be possible
   }
 
 
