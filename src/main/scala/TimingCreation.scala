@@ -12,4 +12,9 @@ object TimingCreation extends App {
   mt.measureTime(myLoop(50000))
   mt.measureTime(myLoop(1000000))
   mt.measureTime(myLoop(1000000000))
+
+  mt.measureTime(Range(1, 1000).toArray)
+  mt.measureTime(Range(1, 1000).toList)
+  mt.measureTime(Range(1, 1000).toSeq)
+  mt.measureTime(Range(1, 1000).toVector)
 }

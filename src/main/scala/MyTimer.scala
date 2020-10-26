@@ -22,5 +22,7 @@ class MyTimer {
     val end = System.nanoTime
     val delta = end - start
     println(s"Evaluation took $delta nanoseconds which is ${delta/1000000000d} seconds")
+    delta
   }
-}
+  }
+
