@@ -12,4 +12,15 @@ class MyTimer {
   }
 
   def prettyPrint(): Unit = println(s"Program run time: $durationTime seconds")
+
+  //so a good way of testing so => delays the evaluation of f
+  def measureTime(f: => Unit) = {
+//    val start = System.currentTimeMillis()
+    val start = System.nanoTime
+    f
+//    val end = System.currentTimeMillis()
+    val end = System.nanoTime
+    val delta = end - start
+    println(s"Evaluation took $delta nanoseconds which is ${delta/1000000000d} seconds")
+  }
 }
