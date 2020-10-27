@@ -6,7 +6,7 @@ class MyTimer {
     startTime
   }
 
-  def stop(): Double = {
+  def stop():Double = {
     durationTime = (System.nanoTime - startTime) / 1e9d
     durationTime
   }
