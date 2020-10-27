@@ -25,10 +25,21 @@ class MyTrie {
      }
 
   def printAll() = {
-    var current = Option(root)
     //start with printing just one random word
     //you are guarantedd to print something because all the leaves in the Trie have x in the end(hasValues
     //so need string builder and print whenever there is hasValue
+    //we will be using breadth first algorithm
+    var nodes = Set(root)
+    while (!nodes.isEmpty) {
+      val haveValue = nodes.filter(_.hasValue)
+      haveValue.foreach(println) //FIXME needs to print actual words
+//      nodes = (for (node <- nodes) yield {node.children.toSet}).toSet
+      var new_nodes = Set.empty[Node]
+      for (node <- nodes) {
+        new_nodes = new_nodes | node.children.values.toSet
+      }
+      nodes = new_nodes
+    }
 
   }
 }

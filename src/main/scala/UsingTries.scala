@@ -16,5 +16,5 @@ object UsingTries extends App{
   val result = myTrie.prefixesMatchingString0("Valdis")
   println(result.mkString(","))
 
-
+  myTrie.printAll()
 }
