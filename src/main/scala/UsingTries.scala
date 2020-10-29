@@ -9,6 +9,8 @@ object UsingTries extends App{
   myTrie.add("Voldemars")
   myTrie.add("Valdemārs")
   myTrie.add("Liga")
+  myTrie.add("Līgavas")
+  myTrie.add("Līgo")
 
   println(myTrie.contains("Valdis"))
   println(myTrie.contains("October"))

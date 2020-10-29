@@ -1,10 +1,12 @@
 class MyTrie {
   class Node(var hasValue: Boolean,
+             val prefix: String,
+             val parent: Option[Node],
              val children: collection.mutable.Map[Char, Node] = collection.mutable.Map())
-  val root = new Node(false)
+  val root = new Node(false, prefix = "", parent = None)
   def add(s: String):Unit= {
     var current = root
-    for (c <- s) current = current.children.getOrElseUpdate(c, new Node(false))
+    for (c <- s) current = current.children.getOrElseUpdate(c, new Node(false, prefix = current.prefix + c, parent = Some(current)))
     current.hasValue = true
   }
   def contains(s: String): Boolean = {
@@ -24,15 +26,15 @@ class MyTrie {
      output.result()
      }
 
-  def printAll() = {
+  def printAll(): Unit = {
     //start with printing just one random word
     //you are guarantedd to print something because all the leaves in the Trie have x in the end(hasValues
     //so need string builder and print whenever there is hasValue
     //we will be using breadth first algorithm
     var nodes = Set(root)
-    while (!nodes.isEmpty) {
+    while (nodes.nonEmpty) {
       val haveValue = nodes.filter(_.hasValue)
-      haveValue.foreach(println) //FIXME needs to print actual words
+      haveValue.foreach(n => println(n.prefix, n.parent.map(_.prefix).getOrElse("ROOT")))  //so this is how you would check if it empty Option(None)
 //      nodes = (for (node <- nodes) yield {node.children.toSet}).toSet
       var new_nodes = Set.empty[Node]
       for (node <- nodes) {
