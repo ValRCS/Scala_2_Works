@@ -5,10 +5,10 @@ object Anagram extends App {
   val check_word = readLine("Please enter your guess")
 
   def showAllAnagrams(word:String) ={
-    Seq("")
+    word.toSeq.permutations.map(_.mkString("")).toSeq
   }
 
-  def isAnagram(word:String, check_word:String) = false //FIXME
+  def isAnagram(word:String, checkWord:String) = word.toSeq.sorted.unwrap == checkWord.toSeq.sorted.unwrap
 
 
   val anagrams = showAllAnagrams(word)
