@@ -1,6 +1,6 @@
 <configuration>
 
-    <property name="HOME_LOG" value="logs/app.log"/>
+    <property name="HOME_LOG" value="logs/app2.log"/>
 
     <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${HOME_LOG}</file>
@@ -20,11 +20,9 @@
         </encoder>
     </appender>
 
-    <logger name="com.github.valrcs" level="warning" additivity="false">
-        <appender-ref ref="FILE-ROLLING"/>
-    </logger>
 
-    <root level="error">
+
+    <root level="debug">
         <appender-ref ref="FILE-ROLLING"/>
     </root>
 
