@@ -14,6 +14,8 @@ object UsingLog extends App {
   logger.info("Test")
   //error you would log when there is an error happening
   logger.error("Danger we got an error!")
+  logger.warn("Warning")
+
 
   def environmentVariables = {
     import scala.collection.JavaConverters._
@@ -24,7 +26,14 @@ object UsingLog extends App {
     val properties = System.getProperties().asScala
     for ((k,v) <- properties) println(s"key: $k, value: $v")
   }
-  environmentVariables
+//  environmentVariables
+
+  def printClassPath() = {
+    import java.lang.ClassLoader
+    val cl = ClassLoader.getSystemClassLoader
+    cl.asInstanceOf[java.net.URLClassLoader].getURLs.foreach(println)
+  }
+//  printClassPath()
 }
 
 

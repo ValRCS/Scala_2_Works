@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.github.valrcs" level="debug" additivity="false">
+    <logger name="com.github.valrcs" level="warning" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
 
