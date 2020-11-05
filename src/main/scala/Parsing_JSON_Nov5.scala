@@ -10,8 +10,7 @@ object Parsing_JSON_Nov5 extends App {
   val seqMap = read[Seq[Map[String,ujson.Value]]](jsonString)
 
   def getPersonSeq(seqMap:Seq[Map[String,ujson.Value]]) : Seq[APerson] = {
-    //FIXME
-    Seq(APerson(9000, "Valdis", "Saulespurens", "valdis.saulespurens@gmail.com", "Male", "127.0.0.1"))
+    seqMap.map(p => APerson(p("id").num.toInt, p("first_name").str, p("last_name").str, p("email").str, p("gender").str, p("ip_address").str))
   }
   val personSeq = getPersonSeq(seqMap)
 
