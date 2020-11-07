@@ -1,4 +1,4 @@
-import scala.xml.XML.loadFile
+import scala.xml.XML.{loadFile, save}
 
 object usingXML extends App {
   val p = <p>Text</p>
@@ -29,17 +29,32 @@ object usingXML extends App {
 //  println(books(0))
 //  val prices = for (book <- books) yield book \ "price" //one way of extracting prices
   val prices = for (book <- books) yield (book \ "price").text.toDouble //one way of extracting prices
-  prices.foreach(println)
+//  prices.foreach(println)
   //below you are saying you want all prices you do not care for which element  they are
   // so \\ is like a wildcard going as deep into XML as needed
   // for huge XML this can take some time
   val dirPrices = (bookstore \\ "price").map(it => it.text.toDouble)
-  dirPrices.foreach(println)
+//  dirPrices.foreach(println)
 //  val hp = (bookstore \ "books").filter(item => item.attribute.get("category") == "children")
-  val hp = books.filter(_.attribute("category").contains("children")) //TODO flatten 
-  hp.foreach(println)
-  println(books.head.attribute("category"))
-  println(books.head.attributes)
-  val cat = books.head.attribute("category")
-  println(cat)
+//  val hp = books.filter(_.attribute("category").contains("children")) //TODO flatten
+//  hp.foreach(println)
+val hp = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "children")}).text
+//  println(hp)
+  val webBooks = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "web")}).text
+//  println(webBooks)
+//  println(books.head.attribute("category"))
+//  println(books.head.attributes)
+//  val cat = books.head.attribute("category")
+//  println(cat)
+
+  val myBook = new Book {
+    val category = "childrens"
+    val title = "Happy Potter"
+    val titleLang = "en"
+    val authors = List("J.K. Rowling")
+    val year = 1997
+    val price = 19.95
+  }
+  println(myBook.toXML)
+  save("./src/resources/mybook.xml", myBook.toXML, xmlDecl = true)
 }
