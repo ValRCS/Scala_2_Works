@@ -34,7 +34,8 @@ object usingXML extends App {
       val title = (el \ "title").text
       val titleLang = (el \ "title" \ "@lang").text
       val authors = (el \ "author").toList.map(_.text)
-      val year = (el \ "year").text.toInt
+      //avoid magic numbers define the defaults somewhere
+      val year = if ((el \ "year").isEmpty) 2048 else (el \ "year").text.toInt
       val price = (el \ "price").text.toDouble
     }
   }
