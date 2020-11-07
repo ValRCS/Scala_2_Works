@@ -1,3 +1,4 @@
+import scala.xml.{Elem, Node, NodeSeq}
 import scala.xml.XML.{loadFile, save}
 
 object usingXML extends App {
@@ -25,6 +26,24 @@ object usingXML extends App {
   val bookstore = loadFile("./src/resources/book.xml") // built in xml loading AND parsing
 //  println(bookstore)
   val books = bookstore \ "book"
+
+  def getBookFromEl(el:Node): Book = {
+    new Book {
+      val category = (el \ "@category").text
+      val title = (el \ "title").text
+      val titleLang = (el \ "title" \ "@lang").text
+      val authors = (el \ "author").toList.map(_.text)
+      val year = (el \ "year").text.toInt
+      val price = (el \ "price").text.toDouble
+    }
+  }
+  val book1 = getBookFromEl(books(0))
+  print(book1)
+
+  //deserialization of XML into our internal data forma
+//  def getBookList(bookNodes: NodeSeq): Seq[Book] = {
+//    Seq[]
+//  }
 //  println(books)
 //  println(books(0))
 //  val prices = for (book <- books) yield book \ "price" //one way of extracting prices
@@ -40,7 +59,10 @@ object usingXML extends App {
 //  hp.foreach(println)
 val hp = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "children")}).text
 //  println(hp)
-  val webBooks = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "web")}).text
+  val webBooks = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "web")})
+//  //so we can save our book collection by adding some parent element for example root
+//  save("./src/resources/webBooks.xml", <bookstore>{webBooks}</bookstore>, xmlDecl = true)
+
 //  println(webBooks)
 //  println(books.head.attribute("category"))
 //  println(books.head.attributes)
@@ -51,10 +73,10 @@ val hp = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "child
     val category = "childrens"
     val title = "Happy Potter"
     val titleLang = "en"
-    val authors = List("J.K. Rowling")
+    val authors = List("J.K. Rowling","Richard Galbraith")
     val year = 1997
     val price = 19.95
   }
-  println(myBook.toXML)
-  save("./src/resources/mybook.xml", myBook.toXML, xmlDecl = true)
+//  println(myBook.toXML)
+//  save("./src/resources/mybook.xml", myBook.toXML, xmlDecl = true)
 }

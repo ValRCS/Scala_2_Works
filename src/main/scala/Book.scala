@@ -7,12 +7,16 @@ abstract class Book {
   val price: Double //possibly some money related format
 
   //toString is built in already so we override
-  override def toString = s"${authors.head}: $title from $year"
+  override def toString = s"${authors.head}: $category $title in $titleLang from $year"
+
+  //TODO investigate how to add newline when saving list of elements
+  def getAuthorSeq() =
+    for (author <- authors) yield <author>{author}</author>
 
   //TODO add attributes and author list
   def toXML = <book category="children">
     <title lang="en">{title}</title>
-    <author>{authors.head}</author>
+    {getAuthorSeq()}
     <year>{year}</year>
     <price>{price}</price>
   </book>
