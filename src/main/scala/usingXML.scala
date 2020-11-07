@@ -27,6 +27,7 @@ object usingXML extends App {
 //  println(bookstore)
   val books = bookstore \ "book"
 
+  //TODO extra checks for possible missing attributes and elements
   def getBookFromEl(el:Node): Book = {
     new Book {
       val category = (el \ "@category").text
@@ -37,14 +38,16 @@ object usingXML extends App {
       val price = (el \ "price").text.toDouble
     }
   }
-  val book1 = getBookFromEl(books(0))
-  print(book1)
+//  val book1 = getBookFromEl(books(0))
+//  print(book1)
 
   //deserialization of XML into our internal data forma
-//  def getBookList(bookNodes: NodeSeq): Seq[Book] = {
-//    Seq[]
-//  }
-//  println(books)
+  def getBookList(bookNodes: NodeSeq): Seq[Book] = {
+    for (book <- bookNodes) yield getBookFromEl(book)
+  }
+  val bookList = getBookList(books)
+  bookList.foreach(println)
+
 //  println(books(0))
 //  val prices = for (book <- books) yield book \ "price" //one way of extracting prices
   val prices = for (book <- books) yield (book \ "price").text.toDouble //one way of extracting prices
@@ -59,7 +62,7 @@ object usingXML extends App {
 //  hp.foreach(println)
 val hp = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "children")}).text
 //  println(hp)
-  val webBooks = (bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "web")})
+  val webBooks = bookstore \\ "book" filter { _ \\ "@category" exists (_.text == "web")}
 //  //so we can save our book collection by adding some parent element for example root
 //  save("./src/resources/webBooks.xml", <bookstore>{webBooks}</bookstore>, xmlDecl = true)
 
