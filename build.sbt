@@ -16,8 +16,10 @@ libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.32.3.2"
 //libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.28.0"
 //// https://mvnrepository.com/artifact/io.getquill/quill-jdbc
 libraryDependencies += "io.getquill" %% "quill-jdbc" % "3.6.0-RC3"
-libraryDependencies += "org.slf4j" % "slf4j-nop" % "1.6.4"
+//libraryDependencies += "org.slf4j" % "slf4j-nop" % "1.6.4"
 libraryDependencies += "com.typesafe.slick" %% "slick" % "3.3.3"
+// https://mvnrepository.com/artifact/com.typesafe.slick/slick-codegen
+libraryDependencies += "com.typesafe.slick" %% "slick-codegen" % "3.3.3"
 //libraryDependencies ++= Seq(
 //  "com.typesafe.slick" %% "slick" % "3.0.0",
 //  "org.slf4j" % "slf4j-nop" % "1.6.4"
