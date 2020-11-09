@@ -12,10 +12,16 @@ libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.3.6"
 libraryDependencies += "com.lihaoyi" %% "upickle" % "0.9.5"
 libraryDependencies += "com.lihaoyi" %% "os-lib" % "0.7.1"
 libraryDependencies += "com.nrinaudo" %% "kantan.xpath" % "0.5.2"
-//libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.32.3.2"
-libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.28.0"
+libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.32.3.2"
+//libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.28.0"
 //// https://mvnrepository.com/artifact/io.getquill/quill-jdbc
 libraryDependencies += "io.getquill" %% "quill-jdbc" % "3.6.0-RC3"
+libraryDependencies += "org.slf4j" % "slf4j-nop" % "1.6.4"
+libraryDependencies += "com.typesafe.slick" %% "slick" % "3.3.3"
+//libraryDependencies ++= Seq(
+//  "com.typesafe.slick" %% "slick" % "3.0.0",
+//  "org.slf4j" % "slf4j-nop" % "1.6.4"
+//)
 //libraryDependencies += "io.getquill" %% "quill-jdbc" % "3.6.0"
 //libraryDependencies ++= Seq(
 //  "org.xerial" % "sqlite-jdbc" % "3.28.0",
