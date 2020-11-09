@@ -9,7 +9,7 @@ object UsingSlick extends App {
 //  val db = Database.forURL(url = "c:/sqlite/db/chinookbad.db")
 //  import scala.concurrent.ExecutionContext.Implicits.global
 
-  //db.run TODO
+  //so this code generator should run whenever we change our Database schema
   slick.codegen.SourceCodeGenerator.main(
     Array(
       "slick.jdbc.SQLiteProfile",
