@@ -20,6 +20,7 @@ libraryDependencies += "io.getquill" %% "quill-jdbc" % "3.6.0-RC3"
 libraryDependencies += "com.typesafe.slick" %% "slick" % "3.3.3"
 // https://mvnrepository.com/artifact/com.typesafe.slick/slick-codegen
 libraryDependencies += "com.typesafe.slick" %% "slick-codegen" % "3.3.3"
+libraryDependencies += "net.debasishg" %% "redisclient" % "3.30"
 //libraryDependencies ++= Seq(
 //  "com.typesafe.slick" %% "slick" % "3.0.0",
 //  "org.slf4j" % "slf4j-nop" % "1.6.4"

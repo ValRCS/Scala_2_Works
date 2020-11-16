@@ -1,4 +1,4 @@
-import org.opal.db.model.Tables
+//import org.opal.db.model.Tables
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -8,8 +8,8 @@ object UsingSlick extends App{
   println("Trying Slick")
   import slick.jdbc.SQLiteProfile.api._ // must import
 val db = Database.forURL(url = "jdbc:sqlite:c:\\sqlite\\db\\chinook.db", driver="org.sqlite.JDBC")
-  val tables = Tables
-  val albums = tables.Albums
+//  val tables = Tables
+//  val albums = tables.Albums
 //  val genres = tables.Genres
 //  //  println(genres.toString())
 ////  db.run(genres.result).map(res => res.foreach {
@@ -37,3 +37,4 @@ val db = Database.forURL(url = "jdbc:sqlite:c:\\sqlite\\db\\chinook.db", driver=
 
 //  result.foreach(println)
 }
+//
