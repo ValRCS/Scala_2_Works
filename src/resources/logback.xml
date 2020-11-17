@@ -23,7 +23,7 @@
 
 
 
-    <root level="debug">
+    <root level="error">
         <appender-ref ref="FILE-ROLLING"/>
     </root>
 

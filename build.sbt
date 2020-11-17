@@ -21,7 +21,7 @@ libraryDependencies += "com.typesafe.slick" %% "slick" % "3.3.3"
 // https://mvnrepository.com/artifact/com.typesafe.slick/slick-codegen
 libraryDependencies += "com.typesafe.slick" %% "slick-codegen" % "3.3.3"
 libraryDependencies += "net.debasishg" %% "redisclient" % "3.30"
-libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "4.1.1"
+libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "4.0.5"
 //libraryDependencies ++= Seq(
 //  "com.typesafe.slick" %% "slick" % "3.0.0",
 //  "org.slf4j" % "slf4j-nop" % "1.6.4"
