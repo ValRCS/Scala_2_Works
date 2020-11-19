@@ -22,6 +22,9 @@ libraryDependencies += "com.typesafe.slick" %% "slick" % "3.3.3"
 libraryDependencies += "com.typesafe.slick" %% "slick-codegen" % "3.3.3"
 libraryDependencies += "net.debasishg" %% "redisclient" % "3.30"
 libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "4.0.5"
+// https://mvnrepository.com/artifact/com.outworkers/phantom-dsl
+libraryDependencies += "com.outworkers" %% "phantom-dsl" % "2.59.0"
+
 //libraryDependencies ++= Seq(
 //  "com.typesafe.slick" %% "slick" % "3.0.0",
 //  "org.slf4j" % "slf4j-nop" % "1.6.4"
