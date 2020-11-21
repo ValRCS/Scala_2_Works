@@ -24,6 +24,11 @@ libraryDependencies += "net.debasishg" %% "redisclient" % "3.30"
 libraryDependencies += "org.mongodb.scala" %% "mongo-scala-driver" % "4.0.5"
 // https://mvnrepository.com/artifact/com.outworkers/phantom-dsl
 libraryDependencies += "com.outworkers" %% "phantom-dsl" % "2.59.0"
+// https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver
+libraryDependencies += "org.neo4j.driver" % "neo4j-java-driver" % "4.1.1"
+// https://mvnrepository.com/artifact/com.dimafeng/neotypes
+libraryDependencies += "com.dimafeng" %% "neotypes" % "0.15.1"
+
 
 //libraryDependencies ++= Seq(
 //  "com.typesafe.slick" %% "slick" % "3.0.0",
