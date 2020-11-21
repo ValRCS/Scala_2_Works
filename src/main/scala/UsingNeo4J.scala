@@ -10,7 +10,7 @@ object UsingNeo4J extends App {
   import scala.concurrent.duration._
 
   val user = "neo4j"
-  val pw = "changeme" //TODO get it from enviroment not hard code it
+  val pw = "city-abuser-chairmen" //TODO get it from enviroment not hard code it
   val host = "52.4.89.242"
   val port = 37125
   val driver = GraphDatabase.driver[Future](s"bolt://$host:$port", AuthTokens.basic(user, pw))
@@ -22,7 +22,7 @@ object UsingNeo4J extends App {
 
   final case class Person(id: Long, born: Int, name: Option[String], notExists: Option[Int])
 
-//  val peopleCC = "match (p:Person) return p limit 10".query[Person].list(session)
+//  val peopleCC: Seq[Person] = "match (p:Person) return p limit 10".query[Person].list(session)
 //  Await.result(peopleCC, 1.second)
   // res: Seq[Person] = ArrayBuffer(Person(0,1975,Some(Charlize Theron),None), Person(4,1964,Some(Keanu Reeves),None), Person(5,1967,Some(Carrie-Anne Moss),None), Person(6,1961,Some(Laurence Fishburne),None), Person(7,1960,Some(Hugo Weaving),None), Person(8,1967,Some(Lilly Wachowski),None), Person(9,1965,Some(Lana Wachowski),None), Person(10,1952,Some(Joel Silver),None), Person(11,1978,Some(Emil Eifrem),None), Person(15,1975,Some(Charlize Theron),None))
 
