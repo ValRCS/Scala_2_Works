@@ -27,8 +27,8 @@ libraryDependencies += "com.outworkers" %% "phantom-dsl" % "2.59.0"
 // https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver
 libraryDependencies += "org.neo4j.driver" % "neo4j-java-driver" % "4.1.1"
 // https://mvnrepository.com/artifact/com.dimafeng/neotypes
-//libraryDependencies += "com.dimafeng" %% "neotypes" % "0.15.1"
-libraryDependencies += "com.dimafeng" %% "neotypes" % "0.15.0"
+libraryDependencies += "com.dimafeng" %% "neotypes" % "0.15.1"
+//libraryDependencies += "com.dimafeng" %% "neotypes" % "0.15.0"
 
 
 
